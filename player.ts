@@ -1,20 +1,32 @@
-var StreamPlayer = require('stream-player')
+const fs = require('fs');
+const m3u8stream = require('m3u8stream')
 
-var player = new StreamPlayer()
- 
-// Add a song url to the queue
-player.add('http://path-to-mp3.com/example.mp3')
- 
-// Add a song url to the queue along with some metadata about the song
-// Metadata can be any object that you want in any format you want
-var metadata = {
-  "title": "Some song",
-  "artist": "Some artist",
-  "duration": 234000,
-  "humanTime": "3:54"
-}
- 
-player.add('http://path-to-mp3.com/example.mp3', metadata)
- 
-// Start playing all songs added to the queue (FIFO)
-player.play()
+m3u8stream('https://server1.stweb.tv/rcvos/live/playlist.m3u8')
+    .pipe(fs.createWriteStream('test.mp3'))
+
+
+
+// var audio = require('audio-stream')
+//  
+// function mediaStream() {
+//     var stream = audio(mediaStream, {
+//         channels: 1,
+//         volume: 0.5
+//     });
+//  
+//     stream.on('header', function(header) {
+//         // Wave header properties
+//     });
+//  
+//     stream.on('data', function(data) {
+//         // Data is a Buffer instance (UInt8Array)
+//     });
+//  
+//     stream.on('end', function() {
+//         // End is emitted when media stream has ended
+//     });
+//  
+//     setTimeout(function() {
+//         mediaStream.stop()
+//     }, 5000);
+// }
