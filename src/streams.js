@@ -9,6 +9,11 @@ const radios = [
     name: 'Con vos',
     stream_url: 'https://server1.stweb.tv/rcvos/live/playlist.m3u8',
   },
+  {
+    key: 'radio10',
+    name: 'Radio 10',
+    stream_url: 'https://radio10.stweb.tv/radio10/live/playlist.m3u8',
+  },
 ]
 
 module.exports = {
